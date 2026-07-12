@@ -7795,7 +7795,21 @@ a.anchor-link {
 </style>
 <!-- End of mermaid configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
-<main><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=1b9cf9e4">
+<main>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="QAOA-Asymmetric-Energy-Optimization-for-Marine-Autonomous-Underwater-Vehicles-(AUVs)">QAOA Asymmetric Energy Optimization for Marine Autonomous Underwater Vehicles (AUVs)<a class="anchor-link" href="#QAOA-Asymmetric-Energy-Optimization-for-Marine-Autonomous-Underwater-Vehicles-(AUVs)">¶</a></h1><h3 id="Computational-Oceanography-&amp;-Quantum-Logistics-Framework">Computational Oceanography &amp; Quantum Logistics Framework<a class="anchor-link" href="#Computational-Oceanography-&amp;-Quantum-Logistics-Framework">¶</a></h3><hr/>
+<h2 id="Mission-Engineering-&amp;-Abstract">Mission Engineering &amp; Abstract<a class="anchor-link" href="#Mission-Engineering-&amp;-Abstract">¶</a></h2><p>Autonomous Underwater Vehicles (AUVs) are critical components in modern oceanic monitoring frameworks, used for high-stakes missions such as underwater pipeline inspections, bathymetric ecosystem mapping, and real-time offshore oil spill containment tracks. However, AUVs operate under severe constraints: strictly limited battery capacities coupled with highly volatile underwater environments.</p>
+<p>Unlike terrestrial drone routing or standard logistical operations, marine routing is inherently asymmetric due to fluid dynamic forces. Traveling with an ocean current vector acts as a kinetic accelerator, conserving battery life, whereas navigating against or perpendicular to a current vector introduces immense hydro-mechanical resistance, accelerating power depletion.</p>
+<p>This simulation architecture models this environmental challenge as an Asymmetric Traveling Salesperson Problem (ATSP). It ingests spatial target coordinates and active ocean current vector layers (u, v components), maps the physics into a mathematical Quadratic Unconstrained Binary Optimization (QUBO) problem, and uses the Quantum Approximate Optimization Algorithm (QAOA) via Qiskit primitives to calculate the most energy-efficient transit route.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7803,54 +7817,179 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="p">{</span>
- <span class="s2">"cells"</span><span class="p">:</span> <span class="p">[</span>
-  <span class="p">{</span>
-   <span class="s2">"cell_type"</span><span class="p">:</span> <span class="s2">"markdown"</span><span class="p">,</span>
-   <span class="s2">"metadata"</span><span class="p">:</span> <span class="p">{},</span>
-   <span class="s2">"source"</span><span class="p">:</span> <span class="p">[</span>
-    <span class="s2">"# QAOA Asymmetric Energy Optimization for Marine Autonomous Underwater Vehicles (AUVs)</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>
-    <span class="s2">"### Computational Oceanography &amp; Quantum Logistics Framework</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>
-    <span class="s2">"---</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>
-    <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>
-    <span class="s2">"## Mission Engineering &amp; Abstract</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>
-    <span class="s2">"Autonomous Underwater Vehicles (AUVs) are critical components in modern oceanic monitoring frameworks, used for high-stakes missions such as underwater pipeline inspections, bathymetric ecosystem mapping, and real-time offshore oil spill containment tracks. However, AUVs operate under severe constraints: strictly limited battery capacities coupled with highly volatile underwater environments.</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>
-    <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>
-    <span class="s2">"Unlike terrestrial drone routing or standard logistical operations, marine routing is inherently asymmetric due to fluid dynamic forces. Traveling with an ocean current vector acts as a kinetic accelerator, conserving battery life, whereas navigating against or perpendicular to a current vector introduces immense hydro-mechanical resistance, accelerating power depletion. </span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>
-    <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>
-    <span class="s2">"This simulation architecture models this environmental challenge as an Asymmetric Traveling Salesperson Problem (ATSP). It ingests spatial target coordinates and active ocean current vector layers (u, v components), maps the physics into a mathematical Quadratic Unconstrained Binary Optimization (QUBO) problem, and uses the Quantum Approximate Optimization Algorithm (QAOA) via Qiskit primitives to calculate the most energy-efficient transit route."</span>
-   <span class="p">]</span>
-  <span class="p">},</span>
-  <span class="p">{</span>
-   <span class="s2">"cell_type"</span><span class="p">:</span> <span class="s2">"code"</span><span class="p">,</span>
-   <span class="s2">"execution_count"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-   <span class="s2">"metadata"</span><span class="p">:</span> <span class="p">{},</span>
-   <span class="s2">"outputs"</span><span class="p">:</span> <span class="p">[],</span>
-   <span class="s2">"source"</span><span class="p">:</span> <span class="p">[</span>
-    <span class="s2">"import sys</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>
-    <span class="s2">"import os</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>
-    <span class="s2">"import numpy as np</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>
-    <span class="s2">"import plotly.graph_objects as go</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>
-    <span class="s2">"import plotly.io as pio</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>
-    <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>
-    <span class="s2">"# Force Plotly to embed responsive JavaScript render engines into the static HTML page output</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>
-    <span class="s2">"pio.renderers.default = </span><span class="se">\"</span><span class="s2">notebook_connected</span><span class="se">\"\n</span><span class="s2">"</span><span class="p">,</span>
-    <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>
-    <span class="s2">"# Establish absolute project path tracking</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>
-    <span class="s2">"sys.path.append(os.path.abspath(os.path.join('..')))</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>
-    <span class="s2">"from marine_routing.cost_models import calculate_asymmetric_costs</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>
-    <span class="s2">"from marine_routing.quantum_engine import build_tsp_qubo, solve_with_qaoa"</span>
-   <span class="p">]</span>
-  <span class="p">},</span>
-  <span class="p">{</span>
-   <span class="s2">"cell_type"</span><span class="p">:</span> <span class="s2">"markdown"</span><span class="p">,</span>
-   <span class="s2">"metadata"</span><span class="p">:</span> <span class="p">{},</span>
-   <span class="s2">"source"</span><span class="p">:</span> <span class="p">[</span>
-    <span class="s2">"## 1. Modeling the Environmental Fluid Layer</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>
-    <span class="s2">"To build a realistic model, we construct a 2D coordinate space containing a primary deployment launch station (Node 0) and three distinct oceanic observation targets (Nodes 1, 2, and 3).</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>
-    <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>
-    <span class="s2">"We introduce a uniform ocean current field characterized by a vector velocity:</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>
-    <span class="s2">"$$</span><span class="se">\\</span><span class="s2">vec</span><span class="si">{V}</span><span class="s2">_</span><span class="si">{current}</span><span class="s2"> = u</span><span class="se">\\</span><span class="s2">hat</span><span class="si">{i}</span><span class="s2"> + v</span><span class="se">\\</span><span class="s2">hat</span><span class="si">{j}</span><span class="s2">$$</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>     <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>     <span class="s2">"where u = 0.8 represents Eastward velocity and v = 0.5 represents Northward velocity. </span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>     <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>     <span class="s2">"The cost function uses a vector dot product projection to modulate the AUV's base speed capability (V_base = 2.0), generating an asymmetric cost matrix C_{i,j} where the energy cost from point i to j does not equal the cost from j to i:</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>     <span class="s2">"$$V_</span><span class="si">{effective}</span><span class="s2"> = V_</span><span class="si">{base}</span><span class="s2"> + </span><span class="se">\\</span><span class="s2">left(</span><span class="se">\\</span><span class="s2">vec</span><span class="si">{V}</span><span class="s2">_</span><span class="si">{current}</span><span class="s2"> </span><span class="se">\\</span><span class="s2">cdot </span><span class="se">\\</span><span class="s2">hat</span><span class="si">{d}</span><span class="s2">_</span><span class="si">{trajectory}</span><span class="se">\\</span><span class="s2">right)$$</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>     <span class="s2">"$$C_{i,j} </span><span class="se">\\</span><span class="s2">propto </span><span class="se">\\</span><span class="s2">frac{</span><span class="se">\\</span><span class="s2">text</span><span class="si">{Distance}</span><span class="s2">_{i,j}}{V_</span><span class="si">{effective}</span><span class="s2">}$$"</span>    <span class="p">]</span>   <span class="p">},</span>   <span class="p">{</span>    <span class="s2">"cell_type"</span><span class="p">:</span> <span class="s2">"code"</span><span class="p">,</span>    <span class="s2">"execution_count"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>    <span class="s2">"metadata"</span><span class="p">:</span> <span class="p">{},</span>    <span class="s2">"outputs"</span><span class="p">:</span> <span class="p">[],</span>    <span class="s2">"source"</span><span class="p">:</span> <span class="p">[</span>     <span class="s2">"nodes = {</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>     <span class="s2">"    0: np.array([0.0, 0.0]), # Mission Control Hub / Deployment Base</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>     <span class="s2">"    1: np.array([2.0, 3.0]), # Observation Point Alpha (Oil Spill Periphery)</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>     <span class="s2">"    2: np.array([5.0, 1.0]), # Observation Point Beta (Bathymetric Fault Line)</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>     <span class="s2">"    3: np.array([6.0, 5.0])  # Observation Point Gamma (Thermal Vent Cluster)</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>     <span class="s2">"}</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>     <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>     <span class="s2">"current_u, current_v = 0.8, 0.5</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>     <span class="s2">"current_vector = np.array([current_u, current_v])</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>     <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>     <span class="s2">"print(</span><span class="se">\"</span><span class="s2">[SYSTEM] Fetching marine data layer configurations...</span><span class="se">\"</span><span class="s2">)</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>     <span class="s2">"energy_matrix = calculate_asymmetric_costs(nodes, current_vector, base_speed=2.0)</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>     <span class="s2">"print(</span><span class="se">\"\\</span><span class="s2">n=== CALCULATED ASYMMETRIC KINETIC COST MATRIX ===</span><span class="se">\"</span><span class="s2">)</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>     <span class="s2">"print(energy_matrix)</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>     <span class="s2">"print(</span><span class="se">\"</span><span class="s2">==================================================</span><span class="se">\"</span><span class="s2">)"</span>    <span class="p">]</span>   <span class="p">},</span>   <span class="p">{</span>    <span class="s2">"cell_type"</span><span class="p">:</span> <span class="s2">"markdown"</span><span class="p">,</span>    <span class="s2">"metadata"</span><span class="p">:</span> <span class="p">{},</span>    <span class="s2">"source"</span><span class="p">:</span> <span class="p">[</span>     <span class="s2">"## 2. QUBO Hamiltonian Compilation &amp; QAOA Execution</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>     <span class="s2">"To process this problem on a gate-model quantum system, the combinatorial constraints must be mapped into binary variables x_{i,t} in {0, 1}, representing whether the vehicle visits coordinate i at time slot t.</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>     <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>     <span class="s2">"### The Objective Function:</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>     <span class="s2">"$$</span><span class="se">\\</span><span class="s2">min </span><span class="se">\\</span><span class="s2">sum_{i=0}^{N-1} </span><span class="se">\\</span><span class="s2">sum_{j=0}^{N-1} </span><span class="se">\\</span><span class="s2">sum_{t=0}^{N-1} C_{i,j} </span><span class="se">\\</span><span class="s2">cdot x_{i,t} </span><span class="se">\\</span><span class="s2">cdot x_{j, (t+1) </span><span class="se">\\</span><span class="s2">pmod N}$$</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>     <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>     <span class="s2">"### System Constraints:</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>     <span class="s2">"1. Spatial Constraint: The vehicle can only occupy a single coordinate at any given time snapshot:</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>     <span class="s2">"   $$</span><span class="se">\\</span><span class="s2">sum_{i=0}^{N-1} x_{i,t} = 1 </span><span class="se">\\</span><span class="s2">quad </span><span class="se">\\</span><span class="s2">forall t$$</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>     <span class="s2">"2. Temporal Constraint: Every targeted spatial node must be visited exactly once across the global execution track:</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>     <span class="s2">"   $$</span><span class="se">\\</span><span class="s2">sum_{t=0}^{N-1} x_{i,</span>
+<div class="highlight hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.graph_objects</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">go</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.io</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pio</span>
+
+<span class="c1"># Force Plotly to embed responsive JavaScript render engines into the static HTML page output</span>
+<span class="n">pio</span><span class="o">.</span><span class="n">renderers</span><span class="o">.</span><span class="n">default</span> <span class="o">=</span> <span class="s2">"notebook_connected"</span>
+
+<span class="c1"># Establish absolute project path tracking</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">'..'</span><span class="p">)))</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">marine_routing.cost_models</span><span class="w"> </span><span class="kn">import</span> <span class="n">calculate_asymmetric_costs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">marine_routing.quantum_engine</span><span class="w"> </span><span class="kn">import</span> <span class="n">build_tsp_qubo</span><span class="p">,</span> <span class="n">solve_with_qaoa</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="1.-Modeling-the-Environmental-Fluid-Layer">1. Modeling the Environmental Fluid Layer<a class="anchor-link" href="#1.-Modeling-the-Environmental-Fluid-Layer">¶</a></h2><p>To build a realistic model, we construct a 2D coordinate space containing a primary deployment launch station (Node 0) and three distinct oceanic observation targets (Nodes 1, 2, and 3).</p>
+<p>We introduce a uniform ocean current field characterized by a vector velocity:
+$$\vec{V}_{current} = u\hat{i} + v\hat{j}$$</p>
+<p>where u = 0.8 represents Eastward velocity and v = 0.5 represents Northward velocity.</p>
+<p>The cost function uses a vector dot product projection to modulate the AUV's base speed capability (V_base = 2.0), generating an asymmetric cost matrix C_{i,j} where the energy cost from point i to j does not equal the cost from j to i:
+$$V_{effective} = V_{base} + \left(\vec{V}_{current} \cdot \hat{d}_{trajectory}\right)$$
+$$C_{i,j} \propto \frac{\text{Distance}_{i,j}}{V_{effective}}$$</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-python"><pre><span></span><span class="n">nodes</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]),</span> <span class="c1"># Mission Control Hub / Deployment Base</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">]),</span> <span class="c1"># Observation Point Alpha (Oil Spill Periphery)</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]),</span> <span class="c1"># Observation Point Beta (Bathymetric Fault Line)</span>
+    <span class="mi">3</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">6.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">])</span>  <span class="c1"># Observation Point Gamma (Thermal Vent Cluster)</span>
+<span class="p">}</span>
+
+<span class="n">current_u</span><span class="p">,</span> <span class="n">current_v</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.5</span>
+<span class="n">current_vector</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">current_u</span><span class="p">,</span> <span class="n">current_v</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"[SYSTEM] Fetching marine data layer configurations..."</span><span class="p">)</span>
+<span class="n">energy_matrix</span> <span class="o">=</span> <span class="n">calculate_asymmetric_costs</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">current_vector</span><span class="p">,</span> <span class="n">base_speed</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">=== CALCULATED ASYMMETRIC KINETIC COST MATRIX ==="</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">energy_matrix</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"=================================================="</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="2.-QUBO-Hamiltonian-Compilation-&amp;-QAOA-Execution">2. QUBO Hamiltonian Compilation &amp; QAOA Execution<a class="anchor-link" href="#2.-QUBO-Hamiltonian-Compilation-&amp;-QAOA-Execution">¶</a></h2><p>To process this problem on a gate-model quantum system, the combinatorial constraints must be mapped into binary variables x_{i,t} in {0, 1}, representing whether the vehicle visits coordinate i at time slot t.</p>
+<h3 id="The-Objective-Function:">The Objective Function:<a class="anchor-link" href="#The-Objective-Function:">¶</a></h3><p>$$\min \sum_{i=0}^{N-1} \sum_{j=0}^{N-1} \sum_{t=0}^{N-1} C_{i,j} \cdot x_{i,t} \cdot x_{j, (t+1) \pmod N}$$</p>
+<h3 id="System-Constraints:">System Constraints:<a class="anchor-link" href="#System-Constraints:">¶</a></h3><ol>
+<li>Spatial Constraint: The vehicle can only occupy a single coordinate at any given time snapshot:
+$$\sum_{i=0}^{N-1} x_{i,t} = 1 \quad \forall t$$</li>
+<li>Temporal Constraint: Every targeted spatial node must be visited exactly once across the global execution track:
+$$\sum_{t=0}^{N-1} x_{i,t} = 1 \quad \forall i$$</li>
+</ol>
+<p>Using Qiskit Optimization primitives, these requirements are mapped into an Ising Hamiltonian Operator where hard constraints are converted to penalty factors.</p>
+<p>We initialize QAOA (Quantum Approximate Optimization Algorithm) utilizing a parameterized variational circuit layout set to 3 alternating cost-mixer layers (reps=3). The classical COBYLA optimizer adjusts the parameters (beta, gamma) across 150 iterations to locate the lowest ground-state energy configuration.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-python"><pre><span></span><span class="n">qubo</span> <span class="o">=</span> <span class="n">build_tsp_qubo</span><span class="p">(</span><span class="n">energy_matrix</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"[QUANTUM ENGINE] Ising Hamiltonian successfully compiled."</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"[QUANTUM ENGINE] Initializing variational circuits with 3 computational reps..."</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"[QUANTUM ENGINE] Launching COBYLA optimization convergence tracker loop..."</span><span class="p">)</span>
+
+<span class="n">route_order</span> <span class="o">=</span> <span class="n">solve_with_qaoa</span><span class="p">(</span><span class="n">qubo</span><span class="p">,</span> <span class="n">max_iterations</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">=== QAOA QUANTUM ENGINE CONVERGENCE REPORT ==="</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Decoded Energy-Optimal Path Sequence: </span><span class="si">{</span><span class="n">route_order</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"==============================================="</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="3.-Interactive-Space-Mapping-&amp;-Operational-Visualization">3. Interactive Space Mapping &amp; Operational Visualization<a class="anchor-link" href="#3.-Interactive-Space-Mapping-&amp;-Operational-Visualization">¶</a></h2><p>The final output maps the structural array sequence back into a functional coordinate layout.</p>
+<ul>
+<li>Blue Vector Grid: Denotes continuous velocity trajectories of active ocean currents moving through the region.</li>
+<li>Dark Blue Nodes: Represent the physical anchor points of target underwater coordinates.</li>
+<li>Green Track Arrows: The optimal, lowest-resistance route computed dynamically via QAOA.</li>
+</ul>
+<p>Interaction Tip: Hover over individual target nodes to evaluate specific waypoint weights and parameters directly from your dashboard browser.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-python"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+
+<span class="c1"># 1. Plot background current vector field grids</span>
+<span class="n">x_grid</span><span class="p">,</span> <span class="n">y_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">x_pos</span><span class="p">,</span> <span class="n">y_pos</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">x_grid</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">y_grid</span><span class="o">.</span><span class="n">flatten</span><span class="p">()):</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="n">x_pos</span><span class="p">,</span> <span class="n">x_pos</span> <span class="o">+</span> <span class="n">current_u</span> <span class="o">*</span> <span class="mf">0.4</span><span class="p">],</span>
+        <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="n">y_pos</span><span class="p">,</span> <span class="n">y_pos</span> <span class="o">+</span> <span class="n">current_v</span> <span class="o">*</span> <span class="mf">0.4</span><span class="p">],</span>
+        <span class="n">mode</span><span class="o">=</span><span class="s1">'lines'</span><span class="p">,</span>
+        <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">'rgba(0, 191, 255, 0.35)'</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">1.5</span><span class="p">),</span>
+        <span class="n">hoverinfo</span><span class="o">=</span><span class="s1">'skip'</span><span class="p">,</span> <span class="n">showlegend</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">))</span>
+
+<span class="c1"># 2. Overlay the forest green optimized path route lines computed via QAOA</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">route_order</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">start_coords</span> <span class="o">=</span> <span class="n">nodes</span><span class="p">[</span><span class="n">route_order</span><span class="p">[</span><span class="n">k</span><span class="p">]]</span>
+    <span class="n">end_coords</span> <span class="o">=</span> <span class="n">nodes</span><span class="p">[</span><span class="n">route_order</span><span class="p">[</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">]]</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="n">start_coords</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">end_coords</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="n">start_coords</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">end_coords</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span>
+        <span class="n">mode</span><span class="o">=</span><span class="s1">'lines+markers'</span><span class="p">,</span>
+        <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">'forestgreen'</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">3.5</span><span class="p">),</span>
+        <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">"Leg </span><span class="si">{</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">: Node </span><span class="si">{</span><span class="n">route_order</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="si">}</span><span class="s2"> -&gt; </span><span class="si">{</span><span class="n">route_order</span><span class="p">[</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span>
+    <span class="p">))</span>
+
+<span class="c1"># 3. Plot Waypoint locations</span>
+<span class="n">node_x</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">nodes</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span>
+<span class="n">node_y</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">nodes</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">node_x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">node_y</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'markers+text'</span><span class="p">,</span>
+    <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">'darkblue'</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">'white'</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">)),</span>
+    <span class="n">text</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s2">"Node </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">nodes</span><span class="o">.</span><span class="n">keys</span><span class="p">()],</span> <span class="n">textposition</span><span class="o">=</span><span class="s2">"top right"</span><span class="p">,</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">"Survey Target Waypoints"</span>
+<span class="p">))</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">"QAOA Energy-Optimized AUV Mission Route Map"</span><span class="p">,</span>
+    <span class="n">xaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Longitude Offset (Grid Units)"</span><span class="p">),</span>
+    <span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Latitude Offset (Grid Units)"</span><span class="p">),</span>
+    <span class="n">template</span><span class="o">=</span><span class="s2">"plotly_white"</span><span class="p">,</span>
+    <span class="n">margin</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">l</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
