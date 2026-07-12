@@ -1,0 +1,33 @@
+name: Deploy Notebook to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+
+    - name: Install Dependencies
+      run: |
+        pip install jupyter nbconvert
+
+    - name: Compile Notebook to Index HTML
+      run: |
+        jupyter nbconvert --to html benchmarks/AUV_Routing_Simulation.ipynb --stdout > index.html
+
+    - name: Commit and Push Webpage
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git add index.html
+        git commit -m "Automated build: Update static deployment dashboard" || exit 0
+        git push
