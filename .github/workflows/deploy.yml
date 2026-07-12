@@ -4,7 +4,6 @@ on:
   push:
     branches: [ main ]
 
-# ADD THIS BLOCK RIGHT HERE TO GRANT WRITE ACCESS
 permissions:
   contents: write
 
@@ -24,14 +23,15 @@ jobs:
       run: |
         pip install jupyter nbconvert plotly docplex qiskit qiskit-algorithms qiskit-optimization matplotlib
 
-    - name: Compile Notebook to Index HTML
+    - name: Execute and Compile Notebook to Index HTML
       run: |
-        jupyter nbconvert --to html benchmarks/AUV_Routing_Simulation.ipynb --stdout > index.html
+        # The --execute flag forces the runner to run all lines of code and capture plots
+        jupyter nbconvert --execute --to html benchmarks/AUV_Routing_Simulation.ipynb --stdout > index.html
 
     - name: Commit and Push Webpage
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
         git add index.html
-        git commit -m "Automated build: Update static deployment dashboard" || exit 0
+        git commit -m "Automated build: Render interactive graph arrays" || exit 0
         git push
