@@ -4,6 +4,10 @@ on:
   push:
     branches: [ main ]
 
+# ADD THIS BLOCK RIGHT HERE TO GRANT WRITE ACCESS
+permissions:
+  contents: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -18,7 +22,7 @@ jobs:
 
     - name: Install Dependencies
       run: |
-        pip install jupyter nbconvert
+        pip install jupyter nbconvert plotly docplex qiskit qiskit-algorithms qiskit-optimization matplotlib
 
     - name: Compile Notebook to Index HTML
       run: |
