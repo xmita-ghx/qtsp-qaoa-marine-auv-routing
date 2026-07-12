@@ -4,9 +4,11 @@ from qiskit_optimization.translators import from_docplex_mp
 from qiskit_algorithms import QAOA
 from qiskit_algorithms.optimizers import COBYLA
 from qiskit_optimization.algorithms import MinimumEigenOptimizer
-from qiskit.primitives import Sampler
 
-def build_tsp_qubo(energy_matrix: np.ndarray) -> QuantumCircuit:
+# UPDATED: Import the correct modern simulation Sampler primitive
+from qiskit.primitives import StatevectorSampler as Sampler
+
+def build_tsp_qubo(energy_matrix: np.ndarray):
     """
     Constructs a mathematical QUBO optimization problem from an asymmetric matrix
     and translates it natively into a Qiskit compatible formulation.
@@ -62,21 +64,3 @@ def solve_with_qaoa(qubo, max_iterations: int = 150) -> list:
     route_order.append(route_order[0]) # Loop circuit route back to launch base
     
     return route_order
-
-if __name__ == "__main__":
-    # Internal module debugging block execution
-    from cost_models import calculate_asymmetric_costs
-    
-    test_nodes = {0: np.array([0,0]), 1: np.array([2,3]), 2: np.array([5,1]), 3: np.array([6,5])}
-    test_current = np.array([0.8, 0.5])
-    
-    print("Calculating environmental cost layers...")
-    costs = calculate_asymmetric_costs(test_nodes, test_current)
-    
-    print("Compiling Ising Hamiltonian QUBO matrices...")
-    qubo_problem = build_tsp_qubo(costs)
-    
-    print("Launching QAOA Quantum Simulation loop...")
-    optimal_path = solve_with_qaoa(qubo_problem)
-    
-    print(f"Calculated Success Route Configuration Sequence: {optimal_path}")
