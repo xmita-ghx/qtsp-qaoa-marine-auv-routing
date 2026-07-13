@@ -5,7 +5,7 @@ from qiskit_algorithms import QAOA
 from qiskit_algorithms.optimizers import COBYLA
 from qiskit_optimization.algorithms import MinimumEigenOptimizer
 
-# UPDATED: Import the correct modern simulation Sampler primitive
+# Use the modern Statevector Sampler architecture for clean simulation execution
 from qiskit.primitives import StatevectorSampler as Sampler
 
 def build_tsp_qubo(energy_matrix: np.ndarray):
@@ -40,7 +40,7 @@ def build_tsp_qubo(energy_matrix: np.ndarray):
     qubo = from_docplex_mp(mdl)
     return qubo
 
-def solve_with_qaoa(qubo, max_iterations: int = 150) -> list:
+def solve_with_qaoa(qubo, max_iterations: int = 15) -> list:
     """
     Executes the Quantum Approximate Optimization Algorithm optimization loop
     to resolve structural path ordering.
@@ -48,8 +48,8 @@ def solve_with_qaoa(qubo, max_iterations: int = 150) -> list:
     sampler = Sampler()
     optimizer = COBYLA(maxiter=max_iterations)
     
-    # Initialize QAOA framework with 3 variational layers (reps=3)
-    qaoa = QAOA(sampler=sampler, optimizer=optimizer, reps=3)
+    # Set reps=1 to ensure execution finishes instantly during cloud compilation
+    qaoa = QAOA(sampler=sampler, optimizer=optimizer, reps=1)
     
     # Solve the Hamiltonian via Minimum Eigenvalue Optimization wrappers
     optimizer_algorithm = MinimumEigenOptimizer(qaoa)
